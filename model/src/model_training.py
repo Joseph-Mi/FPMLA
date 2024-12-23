@@ -3,7 +3,7 @@ from config import CONFIG
 
 def create_model():
     model = tf.keras.Sequential([
-         # First Conv Block
+        # First Conv Block
         tf.keras.layers.Conv2D(32, (3, 3), padding='same', input_shape=(64, 64, 1)),
         tf.keras.layers.BatchNormalization(),
         tf.keras.layers.Activation('relu'),
@@ -27,8 +27,10 @@ def create_model():
         tf.keras.layers.Activation('relu'),
         tf.keras.layers.MaxPooling2D((2, 2)),
         
+        # Global Average Pooling instead of Flatten
+        tf.keras.layers.GlobalAveragePooling2D(),
+        
         # Dense Layers
-        tf.keras.layers.Flatten(),
         tf.keras.layers.Dense(256, activation='relu'),
         tf.keras.layers.BatchNormalization(),
         tf.keras.layers.Dropout(0.5),
