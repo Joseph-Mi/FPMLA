@@ -4,13 +4,13 @@ ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 CONFIG = {
     'IMAGE_SIZE': (64, 64),
-    'BATCH_SIZE': 8,
-    'EPOCHS': 50,
-    'LEARNING_RATE': 0.001,
-    'VALIDATION_SPLIT': 0.2,
+    'BATCH_SIZE': 16,  # Increased from 8
+    'EPOCHS': 180,
+    'LEARNING_RATE': 0.0005,  # slower learning rate
+    'VALIDATION_SPLIT': 0.1,
     'QUANTIZATION_AWARE': True,
     'TARGET_DEVICE': 'DE1_SOC',
-    'FPGA_PREPROCESSING': True,
+    'FPGA_PREPROCESSING': False,  # Disabled for initial training
 
     # Data paths
     'TRAIN_PATH': os.path.join(ROOT_DIR, 'data', 'train'),

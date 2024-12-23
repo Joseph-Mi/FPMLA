@@ -3,7 +3,7 @@ from config import CONFIG
 
 def create_model():
     model = tf.keras.Sequential([
-        # First Conv Block
+         # First Conv Block
         tf.keras.layers.Conv2D(32, (3, 3), padding='same', input_shape=(64, 64, 1)),
         tf.keras.layers.BatchNormalization(),
         tf.keras.layers.Activation('relu'),
@@ -21,9 +21,15 @@ def create_model():
         tf.keras.layers.Activation('relu'),
         tf.keras.layers.MaxPooling2D((2, 2)),
         
+        # Fourth Conv Block
+        tf.keras.layers.Conv2D(256, (3, 3), padding='same'),
+        tf.keras.layers.BatchNormalization(),
+        tf.keras.layers.Activation('relu'),
+        tf.keras.layers.MaxPooling2D((2, 2)),
+        
         # Dense Layers
         tf.keras.layers.Flatten(),
-        tf.keras.layers.Dense(128, activation='relu'),
+        tf.keras.layers.Dense(256, activation='relu'),
         tf.keras.layers.BatchNormalization(),
         tf.keras.layers.Dropout(0.5),
         tf.keras.layers.Dense(24, activation='softmax')
@@ -41,15 +47,19 @@ def convert_to_tflite(model):
     converter = tf.lite.TFLiteConverter.from_keras_model(model)
     converter.optimizations = [tf.lite.Optimize.DEFAULT]
     
-    # Add quantization
+    # Configure quantization
     converter.target_spec.supported_ops = [tf.lite.OpsSet.TFLITE_BUILTINS_INT8]
     converter.inference_input_type = tf.int8
     converter.inference_output_type = tf.int8
     converter.representative_dataset = representative_dataset_gen
     
+    # Enable full integer quantization
+    converter.target_spec.supported_ops = [tf.lite.OpsSet.TFLITE_BUILTINS_INT8]
+    converter.target_spec.supported_types = [tf.int8]
+    converter.optimize_transforms = ["hard_swish_transform"]  # Optional optimization
+    
     tflite_model = converter.convert()
     
-    # Add this part to save the model
     with open(CONFIG['TFLITE_MODEL_PATH'], 'wb') as f:
         f.write(tflite_model)
     
@@ -69,7 +79,7 @@ def representative_dataset_gen():
         shuffle=False
     )
     
-    for i in range(100):  # Calibrate with 100 images ////// NUMBER MIGHT NEED TO CHANGE
+    for i in range(220):  # Calibrate with 100 images ////// NUMBER MIGHT NEED TO CHANGE
         image, _ = next(validation_generator)
         yield [image]
 
@@ -82,14 +92,14 @@ def train_model(model, train_generator, validation_generator):
         ),
         tf.keras.callbacks.ReduceLROnPlateau(
             monitor='val_loss',
-            factor=0.1,
-            patience=3,
+            factor=0.2,
+            patience=5,
             min_lr=1e-6
         ),
 
         tf.keras.callbacks.EarlyStopping(
             monitor='val_loss',
-            patience=8,
+            patience=10,
             restore_best_weights=True
             )
     ]

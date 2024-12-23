@@ -49,13 +49,13 @@ def create_data_generators():
 
     train_datagen = tf.keras.preprocessing.image.ImageDataGenerator(
         preprocessing_function=combined_preprocessing,
-        rotation_range=15,
-        width_shift_range=0.2,
-        height_shift_range=0.2,
-        brightness_range=[0.8,1.2], 
-        shear_range=0.1,           
+        rotation_range=20,
+        width_shift_range=0.3,
+        height_shift_range=0.3,
+        brightness_range=[0.7,1.3], 
+        shear_range=0.2,           
         fill_mode='nearest',        
-        zoom_range=0.2,
+        zoom_range=0.28,
         horizontal_flip=False
     )
 
