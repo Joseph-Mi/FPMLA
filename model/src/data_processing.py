@@ -56,7 +56,6 @@ def create_data_generators():
         shear_range=0.25,           
         fill_mode='nearest',        
         zoom_range=0.3,
-        contrast_stretching=True,
         horizontal_flip=False
     )
 
