@@ -1,7 +1,7 @@
 import os
 import tensorflow as tf
 from data_processing import create_data_generators
-from model_training import create_model, train_model, convert_to_tflite
+from model_training import create_quantized_model, train_quantized_model, convert_to_tflite
 from model_evaluation import evaluate_model, evaluate_tflite_model
 from config import CONFIG
 
@@ -22,10 +22,10 @@ def prepare_data():
 
 def train_and_save_model(train_generator, validation_generator):
     try:
-        model = create_model()
+        model = create_quantized_model()
         print("Model created successfully")
         
-        history = train_model(model, train_generator, validation_generator)
+        history = train_quantized_model(model, train_generator, validation_generator)
         print("Model training completed")
          
         # Save full model - changed to .h5 format
@@ -41,8 +41,10 @@ def train_and_save_model(train_generator, validation_generator):
 def convert_and_evaluate(model, validation_generator):
     """Convert to TFLite and evaluate both models."""
     try:
-        # Convert to TFLite
+        # Convert to TFLite and save to file
         tflite_model = convert_to_tflite(model)
+        with open(CONFIG['TFLITE_MODEL_PATH'], 'wb') as f:
+            f.write(tflite_model)
         print("Model converted to TFLite successfully")
         
         # Evaluate both models
@@ -50,7 +52,7 @@ def convert_and_evaluate(model, validation_generator):
         print(f"Keras Model Accuracy: {keras_accuracy['accuracy']:.4f}")
         
         tflite_accuracy = evaluate_tflite_model(
-            CONFIG['TFLITE_MODEL_PATH'], 
+            CONFIG['TFLITE_MODEL_PATH'],  # Pass the path, not the model content
             validation_generator
         )
         print(f"TFLite Model Accuracy: {tflite_accuracy:.4f}")
