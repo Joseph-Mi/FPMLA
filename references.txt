@@ -1,0 +1,7 @@
+sources
+
+24 bit bmp to mif converter: https://www.eecg.utoronto.ca/~jayar/ece241_08F/vga/
+
+bilinear interpolation: https://www.youtube.com/watch?v=R9mnjPgDCQk
+
+

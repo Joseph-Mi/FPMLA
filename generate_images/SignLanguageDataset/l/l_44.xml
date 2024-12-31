@@ -1,0 +1,26 @@
+<annotation>
+	<folder>l</folder>
+	<filename>l_44.jpg</filename>
+	<path>C:\Users\jmjos\Documents\GPMLM\generate_images\SignLanguageDataset\l\l_44.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>64</width>
+		<height>64</height>
+		<depth>1</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>l</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>24</xmin>
+			<ymin>4</ymin>
+			<xmax>56</xmax>
+			<ymax>49</ymax>
+		</bndbox>
+	</object>
+</annotation>

@@ -1,0 +1,26 @@
+<annotation>
+	<folder>e</folder>
+	<filename>e_38.jpg</filename>
+	<path>C:\Users\jmjos\Documents\GPMLM\generate_images\SignLanguageDataset\e\e_38.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>64</width>
+		<height>64</height>
+		<depth>1</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>e</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>14</xmin>
+			<ymin>9</ymin>
+			<xmax>44</xmax>
+			<ymax>52</ymax>
+		</bndbox>
+	</object>
+</annotation>

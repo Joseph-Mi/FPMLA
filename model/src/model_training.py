@@ -177,4 +177,3 @@ def convert_to_tflite(model, save_path=None):
             f.write(tflite_model)
     
     return tflite_model
-

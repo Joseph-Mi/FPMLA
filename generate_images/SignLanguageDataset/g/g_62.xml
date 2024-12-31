@@ -1,0 +1,26 @@
+<annotation>
+	<folder>g</folder>
+	<filename>g_62.jpg</filename>
+	<path>C:\Users\jmjos\Documents\GPMLM\generate_images\SignLanguageDataset\g\g_62.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>64</width>
+		<height>64</height>
+		<depth>1</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>g</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>27</xmin>
+			<ymin>17</ymin>
+			<xmax>61</xmax>
+			<ymax>43</ymax>
+		</bndbox>
+	</object>
+</annotation>

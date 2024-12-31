@@ -1,0 +1,26 @@
+<annotation>
+	<folder>a</folder>
+	<filename>a_58.jpg</filename>
+	<path>C:\Users\jmjos\Documents\GPMLM\generate_images\SignLanguageDataset\a\a_58.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>64</width>
+		<height>64</height>
+		<depth>1</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>a</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>7</xmin>
+			<ymin>2</ymin>
+			<xmax>43</xmax>
+			<ymax>53</ymax>
+		</bndbox>
+	</object>
+</annotation>

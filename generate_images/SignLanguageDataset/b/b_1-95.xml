@@ -1,0 +1,26 @@
+<annotation>
+	<folder>b</folder>
+	<filename>b_1-95.png</filename>
+	<path>C:\Users\jmjos\Documents\GPMLM\generate_images\SignLanguageDataset\b\b_1-95.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>400</width>
+		<height>400</height>
+		<depth>1</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>b</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>192</xmin>
+			<ymin>20</ymin>
+			<xmax>374</xmax>
+			<ymax>359</ymax>
+		</bndbox>
+	</object>
+</annotation>
