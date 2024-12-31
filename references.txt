@@ -4,4 +4,6 @@ sources
 
 bilinear interpolation: https://www.youtube.com/watch?v=R9mnjPgDCQk
 
+Picture taking tool, which I took and made edits on for my photo resolution: https://github.com/EdjeElectronics/Image-Dataset-Tools
+
 
